@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-
+'''
 # take a random sample of 200k rows as csv is too large 
 chunksize = 100000
 sampled_chunks = []
@@ -10,6 +10,30 @@ for chunk in pd.read_csv('messages-demo.csv', chunksize=chunksize, low_memory=Fa
 
 messages_df = pd.concat(sampled_chunks, ignore_index=True)
 
+'''
+
+
+# Step 1: Read the campaign IDs from the campaigns CSV
+campaigns_df = pd.read_csv('clean_campaigns.csv')
+msg_df = pd.read_csv('messages-demo.csv')
+unique = msg_df['campaign_id'].nunique()
+print(f"Unique campaign_id in filtered dfB: {unique}")
+
+'''
+filtered_msgs = msg_df[msg_df['campaign_id'].isin(campaigns_df['id'])]
+print(filtered_msgs)
+
+# Verify if the number of unique campaign_id matches the number of unique ids in dfA
+unique_campaign_ids_in_msg = filtered_msgs['campaign_id'].nunique()
+unique_ids_in_camps = campaigns_df['id'].nunique()
+
+print(f"Unique campaign_id in filtered dfB: {unique_campaign_ids_in_msg}")
+print(f"Unique id in dfA: {unique_ids_in_camps}")
+
+'''
+
+
+'''
 # Make some cleanup (delete unnecessary columns) and processing
 messages_df.drop(labels=['id', 'created_at', 'updated_at', 'category','email_provider', 'is_hard_bounced', 'is_soft_bounced'], inplace=True, axis=1)
 
@@ -93,3 +117,4 @@ print(unique_values)
 messages_df.to_csv('clean_messages.csv', index=False)
 
 
+'''
