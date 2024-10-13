@@ -75,6 +75,15 @@ duplicate_columns = df.columns[df.columns.duplicated()].tolist()
 num_duplicate_columns = len(duplicate_columns)
 print("Number of duplicate columns:", num_duplicate_columns)
 
+### add this part into doc 
+
+# Find the number of unique primary keys
+unique_primary_keys = df[['campaign_type', 'id']].drop_duplicates()
+selected_primary_keys = unique_primary_keys.sample(n=118, random_state=1)  # random_state for reproducibility
+
+# Merge the selected primary keys back to the original DataFrame to filter rows
+df = df.merge(selected_primary_keys, on=['campaign_type', 'id'], how='inner')
+
 # cleaned df saved to new csv
 df.to_csv('clean_campaigns.csv', index=False)
 
