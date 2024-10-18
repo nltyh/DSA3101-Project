@@ -1,11 +1,18 @@
 import pandas as pd
 
+"""
+Get the set of campaign id we want
+"""
 # Reading the clean campaigns CSV file into memory
 campaign = pd.read_csv("clean_campaigns.csv")
 
 # Extracting unique campaign_ids from the campaigns DataFrame
 campaign_ids = set(campaign['id'].unique())  # Convert to set for faster lookups
 
+"""
+Extracting rows with these campaign id from the messages.csv
+by batches
+"""
 # Define the output file path
 output_file = "Messages_filtered.csv"
 
