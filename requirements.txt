@@ -1,0 +1,10 @@
+pandas
+numpy
+pmdarima
+matplotlib
+nltk
+re
+torch
+softmax
+transformers
+scipy.special
