@@ -93,12 +93,12 @@ customers_copy['moc_ratio'] = customers_copy.apply(calculate_moc_ratio, axis=1)
 df=customers_copy.copy()
 df.drop(columns=['Age', 'Gender', 'Churn', 'Complain'], inplace=True)
 
-df['segment_1'] = (df['only_promo_order'] == 1) | (df['CouponUsed'] >= 2) | (df['CashbackAmount'] >= 205.45)
-df['segment_2'] = (df['total_spend'] >= 62.4) & (df['ave_monthly_orders'] >= 0.32) & (df['Tenure'] >= 14)
-df['segment_3'] = (df['ave_monthly_orders'] <= 0.13) & (df['HourSpendOnApp'] <= 2)
+df['segment_1'] = (df['only_promo_order'] == 1) | (df['CouponUsed'] >= 2) | (df['CashbackAmount'] >= 196.06)
+df['segment_2'] = (df['total_spend'] >= 61.78) & (df['ave_monthly_orders'] >= 0.45) & (df['Tenure'] >= 13)
+df['segment_3'] = (df['ave_monthly_orders'] <= 0.15) & (df['HourSpendOnApp'] <= 2)
 df['segment_4'] = (df['HourSpendOnApp'] >= 4) & (df['NumberOfDeviceRegistered'] >= 4)
 df['segment_5'] = df['moc_ratio'] >= 1
-df['segment_6'] = (df['ordered'] == 0) & (df['Tenure'] >= 14)
+df['segment_6'] = (df['ordered'] == 0) & (df['Tenure'] >= 13)
 
 # Display a few rows to verify the results
 df[['CustomerID', 'segment_1', 'segment_2', 'segment_3', 'segment_4', 'segment_5', 'segment_6']].head()
