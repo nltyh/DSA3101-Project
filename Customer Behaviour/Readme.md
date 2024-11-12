@@ -9,5 +9,3 @@ This is the files for subgroup A of the assignment:
 3. What are the most effective marketing channels and campaigns?
 - Evaluate the ROI of different marketing channels.
 - Analyze the impact of various promotional campaigns on sales.
-
-This is what each file do:
