@@ -72,8 +72,9 @@ print("done")
 
 
 """
-Copied from messages_demo_clean.py
+Below is the testing code to clean the messages
 I checked the code to clean the df, it worked, below is the code for your reference 
+You don't need to run it
 """
 messages_df = pd.read_csv("Messages_filtered.csv", nrows=1000)  # Read the first 1000 rows
 
