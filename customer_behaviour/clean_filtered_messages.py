@@ -52,7 +52,7 @@ conn = sqlite3.connect(database_name)
 i = 0
 # Process the file in chunks
 """
-The file Messages_filtered.csv is quite large so I did not deleted it completely after using it
+The file Messages_filtered.csv is quite large so I deleted it completely after using it
 If you want to create a copy of that, you will have use the code in 
 https://github.com/nltyh/DSA3101-Project/blob/main/customer_behaviour/messages_filter.py 
 """
