@@ -1,3 +1,10 @@
+"""
+Note: to get the messages.csv in this file, you have to access it here https://www.kaggle.com/datasets/mkechinov/direct-messaging/data
+Then you unzip the file to obtain the messages.csv
+I read until the iteration i = 44537 and stopped cus the messages.db file size was very large already
+If you want to get Messages_filtered.csv, u can change the i = 0 and start the running the code and pause the code at i = 44537
+"""
+
 import pandas as pd
 
 """
