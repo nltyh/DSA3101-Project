@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "8080:5000" 
+    volumes:
+      - "./customer_behaviour:/DSA3101-Project/customer_behaviour"
+      - "./Customer_Review_Analysis:/DSA3101-Project/Customer_Review_Analysis"
+      - "./inventory_management:/DSA3101-Project/inventory_management"
+
+    environment:
+      - FLASK_ENV=development  # Set Flask to development mode
+

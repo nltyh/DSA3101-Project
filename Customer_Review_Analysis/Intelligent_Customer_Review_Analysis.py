@@ -1,5 +1,12 @@
 import pandas as pd
 import numpy as np
+import gdown
+
+file_id = '1ebmvpP10yg-eLqQCMFG_mNin-jAe9Zly'
+url = f'https://drive.google.com/uc?id={file_id}'
+output = 'reviews_table.csv'
+
+gdown.download(url, output, quiet=False)
 
 amazon_sales = pd.read_csv("reviews_table.csv")
 
@@ -125,9 +132,11 @@ df = pd.DataFrame({
     "Product Features Sentiment": product_features,
     "Quality Sentiment": quality
 })
-
-print(df['Quality Sentiment'].value_counts())
-print(df['Product Features Sentiment'].value_counts())
+sentiment_counts = {
+     "Quality Sentiment": df['Quality Sentiment'].value_counts(),
+    "Product Features Sentiment": df['Product Features Sentiment'].value_counts()
+}
+print(sentiment_counts)
 
 # Insights of all 3 aspects collected
 insights = pd.concat([df, cust_satisfaction], axis=1)

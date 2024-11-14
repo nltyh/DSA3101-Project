@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Performance Analysis and Optimization</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .notebook {
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            margin-top: 20px;
+        }
+        .description {
+            margin-top: 10px;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        .content-page {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        .content-page ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .content-page li {
+            margin: 8px 0;
+        }
+        .content-page a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+        .content-page a:hover {
+            text-decoration: underline;
+        }
+        .section {
+            margin-top: 30px;
+        }        
+    </style>
+</head>
+<body>
+    <h1>E-commerce Performance Analysis and Optimization Report</h1>
+
+    <div class="content-page">
+        <h2>Contents</h2>
+        <ul>
+            <li><a href="#customer-segmentation">Customer Segmentation</a></li>
+            <li><a href="#demand-forecasting">Demand Forecasting</a></li>
+            <li><a href="#nlp-potential">Potential of Using Natural Language Processing to Analyze Customer Reviews</a></li>
+            <li><a href="#customer-review-insights">Intelligent Customer Review Insights</a></li>
+        </ul>
+    </div>
+
+    <!-- Customer Segmentation Section -->
+    <div id="customer-segmentation" class="section">
+        <h2>Customer Segmentation</h2>
+
+        <div class="description">
+            <p>
+                Below are the results from using a Human Knowledge-Based Model to segment customers based on their actions and spending habits.
+                By calculating various features from our database, this summarized purchasing behaviour at an individual level. These features 
+                provided insights into each customer's frequency, spending patterns, and product preferences, forming the basis for intuitive, 
+                human knowledge-based customer segments.
+            </p>
+        </div>
+        <ul>
+            {% for line in report %}
+                <li>{{ line }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    
+    <div id="demand-forecasting" class="section">
+        <h2>Demand Forecasting</h2>
+        <div class="description">
+            <p>
+                SARIMA-based demand forecasting forms a basis for demand prediction and guide inventory levels. Time-series chart predicting future demand given past historical data. From the visualization, the model predicts a gradual resumption of customer demand after a sudden drop in October 2017.
+            </p>
+        </div>
+        <div>
+            {{ demand_notebook|safe }}
+        </div>
+        
+    </div>
+
+    <!-- Bonus Question -->
+    <div id="nlp-potential" class="section">
+        <h2>Potential of Using Natural Language Processing to Analyze Customer Reviews</h2>
+        <div>
+            {{ notebook_html|safe }}
+        </div>
+    </div>
+
+    <div id="customer-review-insights" class="section">
+        <h2>Intelligent Customer Review Insights</h2>
+
+        <div class="description">
+            <p>
+                We used Roberta, a variant of a pre-trained BERT transformer model to extract key insights about product features, quality, 
+                and customer satisfaction from purchasing customers' reviews.
+            </p>
+        </div>
+
+        <ul>
+            {% for sentiment_category, sentiment_data in sentiment_counts.items() %}
+                <li>
+                    <strong>{{ sentiment_category }}</strong>
+                    <ul>
+                        {% for sentiment, count in sentiment_data.items() %}
+                            <li>{{ sentiment }}: {{ count }}</li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>    
+
+
+
+</body>
+</html>
