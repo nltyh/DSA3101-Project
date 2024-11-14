@@ -1,5 +1,6 @@
-This is the files for subgroup A of the assignment: 
+This is the files for subgroup A of the projecct
 
+The questions for subgroup A:
 1. What are the key factors influencing customer purchasing behavior?
 - Analyze historical sales data to identify patterns and trends.
 - Develop customer segmentation models based on purchasing behavior.
